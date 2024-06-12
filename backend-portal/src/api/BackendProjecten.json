@@ -1,0 +1,50 @@
+[
+	{
+		"id": 1,
+		"naam": "Thomas Heusdens",
+		"website": "Who'Story",
+		"image": "/src/assets/thomas.png",
+		"url": "http://10.2.160.164",
+		"description": "Who'Story is een streaming platform waar je video's kunt bekijken van verhalen van bekende personen. Er zijn verschillende genres beschikbaar, zoals muziek, voetbal, gaming, politiek, horror en het Who'Story-genre. Dit laatste genre bevat ongelooflijke verhalen van onbekende mensen. Om te genieten van de video's en leuke functies, moet je gratis een account aanmaken. Waar wacht je nog op?!"
+	},
+	{
+		"id": 2,
+		"naam": "Rémy Gistelinck",
+		"website": "ComicTube",
+		"image": "/src/assets/remy.png",
+		"url": "http://10.2.160.162/register",
+		"description": "Mijn website is een streaming platform gemaakt voor marvel fans. Er zijn films en shows beschikbaar. Op elke film/show is er een beschrijving van de content, cast en de origin comicbook van elke hero/villain die aanwezig zijn in de film/show. Er is dan ook nog een 'heroes' tab waarop we alle gerelateerde films/shows kunnen bekijken."
+	},
+	{
+		"id": 3,
+		"naam": "Karsten Verherstraeten",
+		"website": "GameWatchers",
+		"image": "/src/assets/karsten.png",
+		"url": "http://10.2.160.172",
+		"description": "Gamewatchers is een platform voor fans van films en series die verbonden zijn met games. Ontdek je favoriete titels en ga direct naar de aankooppagina van de bijbehorende games. Alles wat je nodig hebt om je game-gerelateerde entertainment te vinden en te kopen, op één plek!"
+	},
+	{
+		"id": 4,
+		"naam": "Michael Stoikos",
+		"website": "StreamSport",
+		"image": "/src/assets/michael.png",
+		"url": "http://10.2.160.169",
+		"description": "Op mijn website kan je de recentste e-sport VOD's bekijken, what's the color? BLUEEEE!"
+	},
+	{
+		"id": 5,
+		"naam": "Glory Menga",
+		"website": "FitStream",
+		"image": "/src/assets/glory.png",
+		"url": "http://10.2.160.168",
+		"description": "Mijn streamingssite biedt een uitgebreide verzameling van home workouts die thuis kunnen worden uitgevoerd, zonder de noodzaak van gewichten of machines, en alleen gebruikmakend van een mat. Daarnaast biedt mijn streamingssite ook video's met tips voor specifieke oefeningen in de sportschool, yoga sessies en stretch routines."
+	},
+	{
+		"id": 6,
+		"naam": "Robbe De Clerck",
+		"website": "CulinaryWorld",
+		"image": "/src/assets/robbe.png",
+		"url": "http://10.2.160.158/login",
+		"description": "CulinaryWorld is een  website waarbij allerlei kookvideo's beschikbaar zijn. Gebruikers kunnen zelf video's toevoegen, zoeken, liken en disliken. De USP van deze website is de Chef Battle: een pagina waarbij gebruikers 2 chefs tegen elkaar worden gezet, de gebruiker moet hierbij zijn favoriete chef kiezen en het vote cijfer naar omhoog halen."
+	}
+]

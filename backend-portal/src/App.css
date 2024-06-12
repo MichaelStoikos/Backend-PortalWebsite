@@ -1,0 +1,89 @@
+@font-face {
+	font-family: GothamBlack;
+	src: url("/src/fonts/Gotham-Black.otf");
+}
+
+@font-face {
+	font-family: GothamMedium;
+	src: url("/src/fonts/GothamMedium.ttf");
+}
+
+h1 {
+	font-family: "GothamBlack", sans-serif;
+}
+
+h2,
+h3 {
+	font-family: "GothamMedium";
+}
+
+body {
+	margin: 0;
+}
+
+.wrapper {
+	top: 65px;
+	position: relative;
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+}
+
+.header img {
+	height: 400px;
+	width: 100%;
+	position: absolute;
+}
+
+.header h1 {
+	position: relative;
+	margin-top: 150px;
+	color: white;
+	font-size: 80px;
+}
+
+.projecten {
+	margin-top: 150px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.projecten h1 {
+	color: black;
+	font-size: 50px;
+}
+
+.project-tile {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.project-tile a {
+	text-decoration: none;
+	color: #a7a7a7;
+}
+
+.project-tile h2 {
+	color: black;
+}
+
+.project-tile h3 {
+	color: #a7a7a7;
+	font-size: 15px;
+}
+
+.project-tile img {
+	width: 250px;
+	height: 250px;
+	object-fit: cover;
+}
+
+.tiles {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 40px;
+	margin-top: 75px;
+}
