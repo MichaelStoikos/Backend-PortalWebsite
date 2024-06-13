@@ -10,6 +10,8 @@ function ProjectDetail() {
 	const [projects, setProjects] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const [comment, setComment] = useState("");
+	const [comments, setComments] = useState([]);
 
 	useEffect(() => {
 		const fetchProject = async () => {
@@ -37,9 +39,42 @@ function ProjectDetail() {
 			}
 		};
 
+		const fetchComments = async () => {
+			try {
+				const response = await fetch(`http://localhost:5000/api/projects/${id}/comments`);
+				const data = await response.json();
+				setComments(data);
+			} catch (error) {
+				console.error("Failed to fetch comments:", error);
+			}
+		};
+
 		fetchProject();
 		fetchProjects();
+		fetchComments();
 	}, [id]);
+
+	const handleCommentSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			const response = await fetch(`http://localhost:5000/api/projects/${id}/comments`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ text: comment }),
+			});
+			if (response.ok) {
+				const newComment = await response.json();
+				setComments([...comments, newComment]);
+				setComment("");
+			} else {
+				throw new Error("Failed to post comment");
+			}
+		} catch (error) {
+			console.error(error.message);
+		}
+	};
 
 	if (loading) {
 		return <div>Loading...</div>;
@@ -90,10 +125,24 @@ function ProjectDetail() {
 						<h1>Genre</h1>
 						<p>{project.genre}</p>
 						<div>
-							<a href={project.url}>Visit Website</a>
+							<a href={project.url} target="_blank">
+								Visit Website
+							</a>
 						</div>
 					</div>
 				</div>
+			</div>
+			<div className="comments">
+				<h2>Comments</h2>
+				<ul>
+					{comments.map((comment, index) => (
+						<li key={index}>{comment.text}</li>
+					))}
+				</ul>
+				<form onSubmit={handleCommentSubmit}>
+					<textarea value={comment} onChange={(e) => setComment(e.target.value)} placeholder="Write a comment..." required></textarea>
+					<button type="submit">Post Comment</button>
+				</form>
 			</div>
 			<div className="wrapper">
 				<div>

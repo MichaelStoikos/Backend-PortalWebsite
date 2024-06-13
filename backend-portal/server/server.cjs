@@ -1,12 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 require("dotenv").config({ path: "./config.env" });
 
 const app = express();
 const port = 5000;
 
 app.use(cors());
+app.use(express.json());
 
 let db;
 
@@ -41,6 +42,31 @@ app.get("/api/projects/:id", async (req, res) => {
 		} else {
 			res.json(project);
 		}
+	} catch (e) {
+		res.status(500).json({ error: e.message });
+	}
+});
+
+app.get("/api/projects/:id/comments", async (req, res) => {
+	const { id } = req.params;
+	try {
+		const comments = await db
+			.collection("Posts")
+			.find({ projectId: parseInt(id) })
+			.toArray();
+		res.json(comments);
+	} catch (e) {
+		res.status(500).json({ error: e.message });
+	}
+});
+
+app.post("/api/projects/:id/comments", async (req, res) => {
+	const { id } = req.params;
+	const { text } = req.body;
+	try {
+		const newComment = { projectId: parseInt(id), text, date: new Date() };
+		const result = await db.collection("Posts").insertOne(newComment);
+		res.json(newComment);
 	} catch (e) {
 		res.status(500).json({ error: e.message });
 	}

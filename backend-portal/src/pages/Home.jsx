@@ -32,7 +32,7 @@ function Home() {
 					<h1>Alle projecten</h1>
 					<div className="tiles">
 						{projects.map((project) => (
-							<Tile key={project.id} id={project.id} image={project.visual} website={project.website} naam={project.naam} url={project.url} description={project.description} />
+							<Tile key={project.id} id={project.id} image={project.visual} website={project.naam} naam={project.genre} url={project.url} description={project.description} />
 						))}
 					</div>
 				</div>
