@@ -1,10 +1,25 @@
 import Header from "../component/header.jsx";
 import Background from "/src/assets/Background.jpg";
-import DATA from "../api/BackendProjecten.json";
 import Tile from "../component/tile.jsx";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Home() {
+	const [projects, setProjects] = useState([]);
+
+	useEffect(() => {
+		const fetchProjects = async () => {
+			try {
+				const response = await fetch("http://localhost:5000/api/projects");
+				const data = await response.json();
+				setProjects(data);
+			} catch (error) {
+				console.error("Failed to fetch projects:", error);
+			}
+		};
+
+		fetchProjects();
+	}, []);
+
 	return (
 		<>
 			<Header />
@@ -16,8 +31,8 @@ function Home() {
 				<div className="projecten">
 					<h1>Alle projecten</h1>
 					<div className="tiles">
-						{DATA.map((project) => (
-							<Tile key={project.id} id={project.id} image={project.image} website={project.website} naam={project.naam} url={project.url} description={project.description} />
+						{projects.map((project) => (
+							<Tile key={project.id} id={project.id} image={project.visual} website={project.website} naam={project.naam} url={project.url} description={project.description} />
 						))}
 					</div>
 				</div>
